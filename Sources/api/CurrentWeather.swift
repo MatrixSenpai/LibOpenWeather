@@ -59,17 +59,17 @@ public enum UnitType {
 }
 
 public extension API {
-    func currentWeather(by city: String, state: String? = nil, country: String? = nil, unit: UnitType = .imperial) -> Single<WeatherResponse> {
+    func currentWeather(city: String, state: String? = nil, country: String? = nil, unit: UnitType = .imperial) -> Single<WeatherResponse> {
         let request = CurrentWeatherRequest(request: .city(name: city, state: state, country: country), unit: unit)
         return _request(request)
     }
     
-    func currentWeather(by lat: Double, lon: Double, unit: UnitType = .imperial) -> Single<WeatherResponse> {
+    func currentWeather(lat: Double, lon: Double, unit: UnitType = .imperial) -> Single<WeatherResponse> {
         let request = CurrentWeatherRequest(request: .coordinates(lat: lat, lon: lon), unit: unit)
         return _request(request)
     }
     
-    func currentWeather(by zip: String, unit: UnitType = .imperial) -> Single<WeatherResponse> {
+    func currentWeather(zip: String, unit: UnitType = .imperial) -> Single<WeatherResponse> {
         let request = CurrentWeatherRequest(request: .zip(code: zip), unit: unit)
         return _request(request)
     }
